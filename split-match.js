@@ -40,7 +40,7 @@ PatternMatch.prototype._transform = function(chunk, encoding, done) {
     for(var i in parse) {
 		this.push(parse[i]) 
     }
-    done()  
+      
 }
 // After stream has been read and transformed, the _flush method is called. 
 // It is a great place to push values to output stream and clean up existing data
