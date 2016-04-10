@@ -29,11 +29,14 @@ function PatternMatch(pattern) {
 util(PatternMatch, transform);
 
 PatternMatch.prototype._transform = function(chunk, encoding, done) { 
-    var data = chunk.toString(); 
+    var data = chunk.toString();
+    this.push( 'INPUT:' ); 
+    this.push( data ); 
     var parse = data.split(this.pattern)
     
     this._lastLineData = parse.splice( parse.length-1, 1)[0] 
     
+    this.push('OUTPUT:');
     for(var i in parse) {
 		this.push(parse[i]) 
     }
